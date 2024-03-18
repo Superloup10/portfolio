@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model formation {
+  id           Int            @id(map: "pk_formation_id") @default(autoincrement()) @db.SmallInt
+  name         String         @unique @db.VarChar(255)
+  description  String         @db.VarChar(255)
+  begin_date   DateTime       @db.Date
+  end_date     DateTime       @db.Date
+  projectskill projectskill[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model project {
+  id           Int            @id(map: "pk_project_id") @default(autoincrement()) @db.SmallInt
+  name         String         @unique @db.VarChar(255)
+  description  String         @db.VarChar(255)
+  github_url   String         @db.VarChar(255)
+  web_url      String?        @db.VarChar(255)
+  projectskill projectskill[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model projectskill {
+  project_id   Int        @db.SmallInt
+  skill_id     Int        @db.SmallInt
+  formation_id Int?       @db.SmallInt
+  formation    formation? @relation(fields: [formation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_projectskill_formation_id")
+  project      project    @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_projectskill_project_id")
+  skill        skill      @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_projectskill_skill_id")
+
+  @@id([project_id, skill_id], map: "pk_projectskill_id")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model skill {
+  id           Int            @id(map: "pk_skill_id") @default(autoincrement()) @db.SmallInt
+  name         String         @unique @db.VarChar(255)
+  url          String         @db.VarChar
+  image_url    String         @default("EMPTY") @db.VarChar
+  projectskill projectskill[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model social {
+  id   Int    @id(map: "pk_social_id") @default(autoincrement()) @db.SmallInt
+  name String @unique @db.VarChar(255)
+  url  String @db.VarChar(255)
+}
