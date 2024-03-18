@@ -1,1 +1,19 @@
-{}
+{
+  "subtitle": "Application Developer Designer",
+  "button": {
+    "content": "Download my CV"
+  },
+  "stack": "Technical Stack",
+  "project": "Projects",
+  "experience": "Experiences",
+  "copyright": "All right reserved.",
+  "sr": {
+    "toggle": "Toggle theme",
+    "top": "Back to top"
+  },
+  "toggle": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}

@@ -5,12 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import {Skill} from "@/domain/models/skill.dto";
 import useFetch from "@/hooks/useFetch";
+import {useDictionary} from "@/context/DictionaryContext";
 
 export default function SkillCard() {
     const {data: skills} = useFetch<Skill>("/api/v1/skills");
+    const {dictionary} = useDictionary();
     return (
         <>
-            <h3 className="mt-1.5 p-2.5">Stack Technique</h3>
+            <h3 className="mt-1.5 p-2.5">{dictionary.stack}</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {skills && skills.map(skill => (
                     <Link key={skill.id} href={skill.url}>

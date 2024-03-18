@@ -1,1 +1,19 @@
-{}
+{
+  "subtitle": "Concepteur Développeur d'Applications",
+  "button": {
+    "content": "Télécharger mon CV"
+  },
+  "stack": "Stack Technique",
+  "project": "Projets",
+  "experience": "Expériences",
+  "copyright": "Tous droits réservés.",
+  "sr": {
+    "toggle": "Changer de thème",
+    "top": "Retour en haut"
+  },
+  "toggle": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  }
+}
