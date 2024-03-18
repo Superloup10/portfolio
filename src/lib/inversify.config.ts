@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {Container} from "inversify";
 import {ProjectRepository} from "@/domain/repository/project.repository";
 import {ProjectService} from "@/domain/service/project.service";
