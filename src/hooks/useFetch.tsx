@@ -15,7 +15,7 @@ export default function useFetch<T>(url: string): FetchHook<T> {
             }
         };
         fetchData();
-    }, []);
+    }, [url]);
 
     return {data};
 }
