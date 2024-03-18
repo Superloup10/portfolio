@@ -14,24 +14,23 @@ import {SocialService} from "@/domain/service/social.service";
 import {SocialController} from "@/controller/social.controller";
 
 const container: Container = new Container();
+
+function bindToContainer(container: Container, classes: any[]) {
+    for (let cls of classes) {
+        container.bind(cls).toSelf().inSingletonScope();
+    }
+}
+
 // Project
-container.bind(ProjectRepository).toSelf().inSingletonScope();
-container.bind(ProjectService).toSelf().inSingletonScope();
-container.bind(ProjectController).toSelf().inSingletonScope();
+bindToContainer(container, [ProjectRepository, ProjectService, ProjectController]);
 
 // Skill
-container.bind(SkillRepository).toSelf().inSingletonScope();
-container.bind(SkillService).toSelf().inSingletonScope();
-container.bind(SkillController).toSelf().inSingletonScope();
+bindToContainer(container, [SkillRepository, SkillService, SkillController]);
 
 // Experience
-container.bind(ExperienceRepository).toSelf().inSingletonScope();
-container.bind(ExperienceService).toSelf().inSingletonScope();
-container.bind(ExperienceController).toSelf().inSingletonScope();
+bindToContainer(container, [ExperienceRepository, ExperienceService, ExperienceController]);
 
 // Social
-container.bind(SocialRepository).toSelf().inSingletonScope();
-container.bind(SocialService).toSelf().inSingletonScope();
-container.bind(SocialController).toSelf().inSingletonScope();
+bindToContainer(container, [SocialRepository, SocialService, SocialController]);
 
 export default container;
