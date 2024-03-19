@@ -9,7 +9,7 @@ export default function ExperienceCard() {
     const {dictionary} = useDictionary();
     return (
         <>
-            <h3>{dictionary.experience}</h3>
+            <h3 id="experiences">{dictionary.experience}</h3>
             <ul>
                 {experiences && experiences.map(experience => (
                     <li key={experience.id}>{experience.name}</li>

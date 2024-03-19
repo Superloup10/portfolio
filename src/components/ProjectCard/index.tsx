@@ -10,7 +10,7 @@ export default function ProjectCard() {
 
     return (
         <>
-            <h3>{dictionary.project}</h3>
+            <h3 id="projects">{dictionary.project}</h3>
             {projects && projects.map((project) => (
                 <div key={project.id} className="flex border-2 border-black dark:border-white">
                     <h4>{project.name}</h4>
