@@ -12,6 +12,12 @@ export class ProjectController {
         return NextResponse.json(projects);
     }
 
+    async addProject(request: NextRequest) {
+        const {name, description, githubUrl, webUrl} = await request.json();
+        await this.service.addProject(name, description, githubUrl, webUrl);
+        return NextResponse.json({message: "Project added successfully."}, {status: 201});
+    }
+
     async getProject(request: NextRequest) {
         const name = request.nextUrl.searchParams.get("name")!;
         const project = await this.service.getProject(name);

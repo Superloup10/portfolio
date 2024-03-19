@@ -12,6 +12,12 @@ export class SocialController {
         return NextResponse.json(socials);
     }
 
+    async addSocial(request: NextRequest) {
+        const {name, url} = await request.json();
+        await this.service.addSocial(name, url);
+        return NextResponse.json({message: "Social added successfully."}, {status: 201});
+    }
+
     async getSocial(request: NextRequest) {
         const name = request.nextUrl.searchParams.get("name")!;
         const social = await this.service.getSocial(name);

@@ -12,6 +12,12 @@ export class ExperienceController {
         return NextResponse.json(experiences);
     }
 
+    async addExperience(request: NextRequest) {
+        const {name, description, beginDate, endDate} = await request.json();
+        await this.service.addExperience(name, description, beginDate, endDate);
+        return NextResponse.json({message: "Experience added successfully."}, {status: 201});
+    }
+
     async getExperience(request: NextRequest) {
         const name = request.nextUrl.searchParams.get("name")!;
         const experience = await this.service.getExperience(name);

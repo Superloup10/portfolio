@@ -8,6 +8,10 @@ export class SkillRepository {
         return prisma.skill.findMany({orderBy: {id: "asc"}});
     }
 
+    async addSkill(name: string, url: string, imageUrl: string): Promise<Skill> {
+        return prisma.skill.create({data: {name, url, image_url: imageUrl}});
+    }
+
     async getSkill(name: string): Promise<Skill | null> {
         return prisma.skill.findUnique({where: {name}});
     }

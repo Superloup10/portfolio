@@ -10,10 +10,17 @@ export class ProjectService {
         return this.repository.getProjects();
     }
 
+    async addProject(name: string, description: string, githubUrl: string, webUrl?: string) {
+        if(await this.repository.getProject(name) !== null) {
+            throw new Error(`The project ${name} already exists.`);
+        }
+        return this.repository.addProject(name, description, githubUrl, webUrl);
+    }
+
     async getProject(name: string) {
         const project = await this.repository.getProject(name);
         if (!project) {
-            throw new Error(`Project not found: ${name}`);
+            throw new Error(`The project not found: ${name}`);
         }
         return project;
     }

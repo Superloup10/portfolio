@@ -10,10 +10,17 @@ export class ExperienceService {
         return this.repository.getExperiences();
     }
 
+    async addExperience(name: string, description: string, beginDate: Date, endDate: Date) {
+        if (await this.repository.getExperience(name) !== null) {
+            throw new Error(`Experience ${name} already exists.`);
+        }
+        return this.repository.addExperience(name, description, beginDate, endDate);
+    }
+
     async getExperience(name: string) {
         const experience = await this.repository.getExperience(name);
         if (!experience) {
-            throw new Error(`Experience not found: ${name}`);
+            throw new Error(`The experience not found: ${name}.`);
         }
         return experience;
     }
