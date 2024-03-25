@@ -83,7 +83,7 @@ export default function ProjectCard() {
 
     return (
         <>
-            <h3 id="projects">{dictionary.project}</h3>
+            <h3 id="projects" className="pt-2.5">{dictionary.project}</h3>
             {projects && (
                 <>
                     <MobileViewProject projects={projects}/>

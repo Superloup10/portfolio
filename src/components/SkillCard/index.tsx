@@ -14,7 +14,7 @@ export default function SkillCard() {
     const {dictionary} = useDictionary();
     return (
         <>
-            <h3 id="stack" className="mt-1.5 p-2.5">{dictionary.stack}</h3>
+            <h3 id="stack" className="mt-1.5 py-2.5">{dictionary.stack}</h3>
             <div
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-4">
                 {skills && skills.map(skill => (
