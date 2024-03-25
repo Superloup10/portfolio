@@ -5,7 +5,7 @@ import useFetch from "@/hooks/useFetch";
 import {useDictionary} from "@/context/DictionaryContext";
 
 export default function ExperienceCard() {
-    const {data: experiences} = useFetch<Experience>("/api/v1/experiences");
+    const {data: experiences} = useFetch<Experience[]>("/api/v1/experiences");
     const {dictionary} = useDictionary();
     return (
         <>

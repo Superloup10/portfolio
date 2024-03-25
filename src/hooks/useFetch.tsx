@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react";
 
 type FetchHook<T> = {
-    data: T[] | null;
+    data: T | null;
     error: any;
 };
 
 export default function useFetch<T>(url: string, method: "GET" | "POST" | "PUT" | "DELETE" = "GET", body?: any): FetchHook<T> {
-    const [data, setData] = useState<T[] | null>(null);
+    const [data, setData] = useState<T | null>(null);
     const [error, setError] = useState<any>(null);
     useEffect(() => {
         const fetchData = async () => {
@@ -17,7 +17,7 @@ export default function useFetch<T>(url: string, method: "GET" | "POST" | "PUT" 
             try {
                 const response = await fetch(url, options);
                 if (response.ok) {
-                    const data: T[] = await response.json();
+                    const data: T = await response.json();
                     setData(data);
                 } else {
                     setError(Error("Server error occurred"));

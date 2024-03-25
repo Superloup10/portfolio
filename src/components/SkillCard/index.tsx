@@ -6,7 +6,9 @@ import {useDictionary} from "@/context/DictionaryContext";
 import ParameterCard from "@/components/ParameterCard";
 
 export default function SkillCard() {
-    const {data: skills} = useFetch<Skill>("/api/v1/skills");
+    const {data: skills} = useFetch<Skill[]>("/api/v1/skills");
+
+    const {isAdmin} = useAdmin();
     const {dictionary} = useDictionary();
     return (
         <>

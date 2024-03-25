@@ -1,4 +1,5 @@
 "use client"
+
 import SkillCard from "@/components/SkillCard";
 import Link from "next/link";
 import SocialIcon from "@/components/SocialIcon";

@@ -6,7 +6,7 @@ import Link from "next/link";
 import useFetch from "@/hooks/useFetch";
 
 export default function SocialIcon() {
-    const {data: socials} = useFetch<Social>("/api/v1/socials");
+    const {data: socials} = useFetch<Social[]>("/api/v1/socials");
     return (
         <div className="flex gap-[5px] mt-[11px]">
             {socials && socials.map(social => (

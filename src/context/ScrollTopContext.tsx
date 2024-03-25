@@ -7,7 +7,7 @@ interface ScrollTopContextProps {
     scrollToTop: () => void;
 }
 
-export const ScrollTopContext = createContext<ScrollTopContextProps>({
+const ScrollTopContext = createContext<ScrollTopContextProps>({
     visible: false,
     scrollToTop(): void {
     }

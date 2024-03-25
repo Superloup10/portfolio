@@ -5,7 +5,7 @@ import useFetch from "@/hooks/useFetch";
 import {useDictionary} from "@/context/DictionaryContext";
 
 export default function ProjectCard() {
-    const {data: projects} = useFetch<Project>("/api/v1/projects");
+    const {data: projects} = useFetch<Project[]>("/api/v1/projects");
     const {dictionary} = useDictionary();
 
     return (
