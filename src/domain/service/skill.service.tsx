@@ -6,7 +6,7 @@ export class SkillService {
     constructor(@inject(SkillRepository) private readonly repository: SkillRepository) {
     }
 
-    async getSkills() {
+    getSkills() {
         return this.repository.getSkills();
     }
 

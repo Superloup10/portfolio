@@ -2,12 +2,12 @@ import container from "@/lib/inversify.config";
 import {SkillController} from "@/controller/skill.controller";
 import {NextRequest} from "next/server";
 
-export async function GET() {
+export function GET() {
     const controller = container.get(SkillController);
-    return await controller.getSkills();
+    return controller.getSkills();
 }
 
-export async function POST(request: NextRequest) {
+export function POST(request: NextRequest) {
     const controller = container.get(SkillController);
-    return await controller.addSkill(request);
+    return controller.addSkill(request);
 }

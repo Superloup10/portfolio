@@ -6,7 +6,7 @@ export class ProjectService {
     constructor(@inject(ProjectRepository) private readonly repository: ProjectRepository) {
     }
 
-    async getProjects() {
+    getProjects() {
         return this.repository.getProjects();
     }
 

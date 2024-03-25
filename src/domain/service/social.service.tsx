@@ -6,7 +6,7 @@ export class SocialService {
     constructor(@inject(SocialRepository) private readonly repository: SocialRepository) {
     }
 
-    async getSocials() {
+    getSocials() {
         return this.repository.getSocials();
     }
 

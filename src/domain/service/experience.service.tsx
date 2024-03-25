@@ -6,7 +6,7 @@ export class ExperienceService {
     constructor(@inject(ExperienceRepository) private readonly repository: ExperienceRepository) {
     }
 
-    async getExperiences() {
+    getExperiences() {
         return this.repository.getExperiences();
     }
 
