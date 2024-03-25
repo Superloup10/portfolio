@@ -5,7 +5,16 @@ import {Project} from "@/domain/models/project.dto";
 @injectable()
 export class ProjectRepository {
     async getProjects(): Promise<Project[]> {
-        return prisma.project.findMany({orderBy: {id: "asc"}});
+        return prisma.project.findMany({
+            include: {
+                projectskill: {
+                    include: {
+                        skill: true
+                    }
+                },
+            },
+            orderBy: {id: "asc"}
+        });
     }
 
     async addProject(name: string, description: string, githubUrl: string, webUrl?: string): Promise<Project> {
