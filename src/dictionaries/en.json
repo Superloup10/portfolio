@@ -15,5 +15,12 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "admin": {
+    "login": {
+      "title": "Connection",
+      "action": "Log in",
+      "cancel": "Cancel"
+    }
   }
 }

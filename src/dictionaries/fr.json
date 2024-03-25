@@ -15,5 +15,12 @@
     "light": "Clair",
     "dark": "Sombre",
     "system": "Système"
+  },
+  "admin": {
+    "login": {
+      "title": "Connexion",
+      "action": "Se connecter",
+      "cancel": "Annuler"
+    }
   }
 }

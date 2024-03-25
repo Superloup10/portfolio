@@ -8,6 +8,7 @@ import {ReactNode} from "react";
 import ScrollTopProvider from "@/context/ScrollTopContext";
 import {type Locale} from "@/i18n-config";
 import DictionaryProvider from "@/context/DictionaryContext";
+import AdminProvider from "@/context/AdminContext";
 
 const jetbrains = localFont({
     src: [
@@ -47,9 +48,11 @@ export default function RootLayout({children, params}: Readonly<{ children: Reac
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <ScrollTopProvider>
                 <DictionaryProvider locale={params.lang}>
-                    <Header/>
-                    {children}
-                    <Footer/>
+                    <AdminProvider>
+                        <Header/>
+                        {children}
+                        <Footer/>
+                    </AdminProvider>
                 </DictionaryProvider>
             </ScrollTopProvider>
         </ThemeProvider>

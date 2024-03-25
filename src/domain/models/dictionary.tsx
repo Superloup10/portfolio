@@ -16,4 +16,11 @@ export type Dictionary = {
         dark: string;
         system: string;
     }
+    admin: {
+        login: {
+            title: string;
+            action: string;
+            cancel: string;
+        }
+    }
 };

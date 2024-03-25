@@ -21,7 +21,7 @@ export default function EmptyCard() {
     };
 
     return (
-        <Card className="flex flex-col items-center justify-center w-full h-full space-y-4">
+        <Card className="flex flex-col items-center justify-center w-full h-full">
             <CardHeader className="flex flex-row items-center justify-between w-full">
                 <Ellipsis size={16}/>
                 <X size={16}/>

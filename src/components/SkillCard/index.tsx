@@ -4,6 +4,8 @@ import {Skill} from "@/domain/models/skill.dto";
 import useFetch from "@/hooks/useFetch";
 import {useDictionary} from "@/context/DictionaryContext";
 import ParameterCard from "@/components/ParameterCard";
+import EmptyCard from "@/components/EmptyCard";
+import {useAdmin} from "@/context/AdminContext";
 
 export default function SkillCard() {
     const {data: skills} = useFetch<Skill[]>("/api/v1/skills");
@@ -18,6 +20,7 @@ export default function SkillCard() {
                 {skills && skills.map(skill => (
                     <ParameterCard key={skill.id} url={skill.url} imageUrl={skill.image_url} name={skill.name}/>
                 ))}
+                {isAdmin && <EmptyCard/>}
             </div>
         </>
     );
