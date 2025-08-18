@@ -1,44 +1,71 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "minimumReleaseAge": "3 days",
-  "semanticCommits": "enabled",
-  "commitMessagePrefix": "chore(deps):",
-  "separateMultipleMajor": true,
   "major": {
     "dependencyDashboardApproval": true
   },
   "schedule": ["at 6:00am on monday"],
   "timezone": "Europe/Paris",
-  "dependencyDashboard": true,
-  "labels": ["dependencies"],
   "reviewers": ["@Superloup10"],
   "packageRules": [
-    {
-      "matchManagers": ["npm"],
-      "groupName": "🌐 Node.js dependencies"
-    },
     {
       "matchUpdateTypes": ["patch", "pin", "digest"],
       "automerge": true,
       "automergeType": "pr"
     },
     {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
       "matchUpdateTypes": ["major"],
       "labels": ["dependencies", "breaking"]
+    },
+    {
+      "groupName": "Security updates",
+      "matchCategories": ["security"],
+      "prPriority": 1
+    },
+    {
+      "groupName": "Next.js + React",
+      "matchPackageNames": ["next", "react", "react-dom"]
+    },
+    {
+      "groupName": "Prisma",
+      "matchPackageNames": ["prisma"],
+      "matchPackagePatterns": ["^@prisma/"]
+    },
+    {
+      "groupName": "Tailwind & PostCSS",
+      "matchPackageNames": ["tailwindcss", "tailwind-merge", "tailwindcss-animate", "postcss", "autoprefixer"]
+    },
+    {
+      "groupName": "TypeScript & ESLint",
+      "matchPackageNames": ["typescript", "eslint", "eslint-config-next"],
+      "matchPackagePatterns": ["^@types/"]
+    },
+    {
+      "groupName": "Node.js (nvm)",
+      "matchManagers": ["nvm"],
+      "labels": ["dependencies", "node"]
     }
   ],
-  "enabledManagers": ["gradle", "dockerfile", "docker-compose", "devcontainer", "npm"],
+  "enabledManagers": ["npm", "nvm"],
   "rebaseWhen": "behind-base-branch",
-  "separateMajorMinor": true,
-  "separateMinorPatch": true,
   "prCreation": "immediate",
   "vulnerabilityAlerts": {
     "labels": ["security"],
-    "assignees": ["@Superloup10"],
-    "prPriority": 1
+    "assignees": ["@Superloup10"]
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "schedule": ["at 6:00am on monday"]
   },
   "rollbackPrs": true,
   "assigneesFromCodeOwners": true,
