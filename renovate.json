@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  "baseBranches": ["develop"],
   "minimumReleaseAge": "3 days",
   "major": {
     "dependencyDashboardApproval": true
